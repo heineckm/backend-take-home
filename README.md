@@ -1,43 +1,39 @@
-# Sr. Software Engineer Coding Exercise
+# Introduction
+Welcome!
 
-# Summary
-Write a Java command line program `quotely` which takes as an argument `English` or `Russian` and returns a quote from the forismatic API with the correct language.
-If a language is not specified, default to English.
+This is a simple project for querying the  [Forismatic API](https://www.forismatic.com/en/api/) and returning a random quote via command line.
 
-# Instructions
+This was completed as part of a coding exercise for [Gremlin](https://www.gremlin.com/). See the [OriginalInstructions.md](OriginalInstructions.md) for more the original prompt.
 
-Please write a java program which 
-1. Operates on the command line
-1. Accepts a language as an argument (either `English` or `Russian`)
-1. Fetches results from the forismatic.com quote api (http://forismatic.com/en/api/)
-1. Displays to stdout the quote and author
+# Building/Running
+This project uses (and includes) gradle for ease of execution. 
+The project can  be easily opened in a modern IDE, such as intelliJ. For example, after cloning the repository, open the root folder as a project in intelliJ.
 
-# Time Limit
+The project can be cleaned/built/tested via command line:
+ - `.\gradlew clean`
+ - `.\gradlew build`
+ - `.\gradlew test`
 
-We want to balance the value of coding exercises with the time obligation that we ask of our candidates. Please limit your time investment to two hours. If as you approach 2 hours, you find you are not almost done, document what remaining steps you would complete given more time, and submit your partial work.
+The application can be run with:
+ - `.\gradlew run`
+ - `.\gradlew run --args="-lang English"`
+ - `.\gradlew run --args="-l Russian"`
+ - `.\gradlew run --args="-lRussian"`
 
-# External Libraries
+"English" and "Russian" are accepted parameter values, and are not case sensitive. The default is `English`.
 
-You may use any external library you wish, but please do not use this or https://github.com/VEINHORN/forismatic-api-java similar client libraries which reduce the exercise to a couple API calls. This limits the utility of the exercise.
+In intelliJ, you can execute the gradle run task with arguments by setting the configuration Task to be empty and the Arguments to: `run --args='--lang Russian'`
+If the Cyrillic characters don't render correctly for you in intelliJ, see this for reference: https://stackoverflow.com/a/56430344
 
-# Evaluation Criteria
+# Incomplete tasks/To be done
+- Improve distribution: Modify the application to be able to be run with the command: "quotely"
+- Improve the test suite. The test suite is incomplete and mostly skeleton or stubbed. Lots more tests need to be written. I attempted to give examples for each.
+- Complete javadoccing.
 
-We are looking for:
-
-1. Simple, easy to understand code
-1. Runnable test suite
-1. Project organization
-1. Any documentation necessary to run and evaluate the program
-
-A goal is for this project to not take a burdensome amouont of time. Please include in your submission how long you spent doing this exercise so we can adjust it as appropriate.
-
-# Submission
-
-When complete, please provide a link to your projects GitHub repo (or public source control service of choice). You can do this by replying to the email from the recruiting team or emailing recruiting@gremlin.com.
-
-# Other Notes
-If you have any questions, please reach out to recruiting@gremlin.com.
-
-If you spend more than 2 hours on this, feel free to submit partial work. We want to be respectful of people's time commitments, and we can learn a lot about your work even if it's incomplete.
-
-Please take care not to hammer this public API. Be kind.
+# Future items
+- Set up GitHub actions (or similar) for Continuous Development and Testing pipelines
+- Handle more of the Forismatic API options (such as the key parameter)
+- Handle other Forismatic response format types
+- Handle arguments in Cyrillic (the Russian alphabet). Potentially translate all text to Cyrillic when that is the language of choice. 
+  - This would entail implementing/including a translation module and passing all text through it.
+  
